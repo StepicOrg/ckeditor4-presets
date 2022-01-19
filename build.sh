@@ -155,7 +155,7 @@ if ! [[ $jdk_version =~ $regex ]] || [ $jdk_version -gt 15 ]; then
 fi
 
 {
-	java -jar ckbuilder/$CKBUILDER_VERSION/ckbuilder.jar --build ckeditor $target $skip $require_plugin --version="$CKEDITOR_VERSION ($name)" --revision $rev --build-config presets/$1-build-config.js --no-zip --no-tar --overwrite $JAVA_ARGS
+	java -jar ckbuilder/$CKBUILDER_VERSION/ckbuilder.jar --build ckeditor $target $skip $require_plugin --version="$CKEDITOR_VERSION ($name)" --revision $rev --build-config presets/$1-build-config.js --no-zip --no-tar --no-ie-checks --overwrite $JAVA_ARGS
 } || {
 	if ! [[ $jdk_version =~ $regex ]] || [ $jdk_version -gt 15 ]; then
 		echo -e "\n${RED}The build has been stopped. Please verify the eventual error messages above.${RESET_STYLE}"
